@@ -26,6 +26,12 @@ def about():
     """Render the website's about page."""
     return render_template('about.html')
 
+@login_required
+@app.route('/secure-page')
+def secure_page():
+    """Must be logged in to access this page"""
+    return render_template('secure.html')
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
